@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Traductor a Braille</title>
+</head>
+<body>
+	<h1>Traductor a Braille</h1>
+	<p>Introduce el texto que deseas traducir:</p>
+	<textarea id="texto" rows="4" cols="50"></textarea>
+	<button onclick="traducir()">Traducir</button>
+	<h2>Texto traducido a Braille:</h2>
+	<div id="resultado"></div>
+
+	<script>
+		function traducir() {
+			// Obtener el texto ingresado por el usuario
+			var texto = document.getElementById("texto").value.toLowerCase();
+			// Crear un objeto con las letras del alfabeto y su equivalente en Braille
+			var alfabeto = {
+				"a": "⠁",
+				"b": "⠃",
+				"c": "⠉",
+				"d": "⠙",
+				"e": "⠑",
+				"f": "⠋",
+				"g": "⠛",
+				"h": "⠓",
+				"i": "⠊",
+				"j": "⠚",
+				"k": "⠅",
+				"l": "⠇",
+				"m": "⠍",
+				"n": "⠝",
+				"o": "⠕",
+				"p": "⠏",
+				"q": "⠟",
+				"r": "⠗",
+				"s": "⠎",
+				"t": "⠞",
+				"u": "⠥",
+				"v": "⠧",
+				"w": "⠺",
+				"x": "⠭",
+				"y": "⠽",
+				"z": "⠵",
+				" ": " ",
+				".": "⠲",
+				",": "⠂",
+				";": "⠆",
+				":": "⠒",
+				"?": "⠦",
+				"!": "⠖",
+				"-": "⠤",
+				"_": "⠸",
+				"(": "⠐⠣",
+				")": "⠐⠜",
+				"/": "⠸⠌",
+				"1": "⠼⠁",
+				"2": "⠼⠃",
+				"3": "⠼⠉",
+				"4": "⠼⠙",
+				"5": "⠼⠑",
+				"6": "⠼⠋",
+				"7": "⠼⠛",
+				"8": "⠼⠓",
+				"9": "⠼⠊",
+				"0": "⠼⠚"
+			};
+			// Convertir el texto a Braille
+			var resultado = "";
+			for (var i = 0; i < texto.length; i++) {
+				var letra = texto.charAt(i);
+				if (alfabeto.hasOwnProperty(letra)) {
+					resultado += alfabeto[letra];
+				} else {
+					resultado += letra;
+				}
+            }
+// Mostrar el resultado en la página
+document.getElementById("resultado").innerHTML = resultado;
+}
+</script>
+
+</body>
+</html>
+			
